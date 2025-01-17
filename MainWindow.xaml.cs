@@ -17,5 +17,7 @@ namespace WeatherApplication {
         public MainWindow() {
             InitializeComponent();
         }
+
+
     }
 }
