@@ -1,7 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace WeatherApplication.Model {
-    internal class Weather {
+    public class Weather {
+        [JsonPropertyName("product")]
+        public string product { get; set; }
+
+        [JsonPropertyName("init")]
+        public string init { get; set; }
+
+        [JsonPropertyName("dataseries")]
+        public List<Dataseries> dataseries { get; set; }
     }
 
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
@@ -34,17 +42,6 @@ namespace WeatherApplication.Model {
         public string weather { get; set; }
     }
 
-    public class Root {
-        [JsonPropertyName("product")]
-        public string product { get; set; }
-
-        [JsonPropertyName("init")]
-        public string init { get; set; }
-
-        [JsonPropertyName("dataseries")]
-        public List<Dataseries> dataseries { get; set; }
-    }
-
     public class Wind10m {
         [JsonPropertyName("direction")]
         public string direction { get; set; }
@@ -52,6 +49,4 @@ namespace WeatherApplication.Model {
         [JsonPropertyName("speed")]
         public int speed { get; set; }
     }
-
-
 }
