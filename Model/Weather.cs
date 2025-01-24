@@ -12,7 +12,6 @@ namespace WeatherApplication.Model {
         public List<Dataseries> dataseries { get; set; }
     }
 
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Dataseries {
         [JsonPropertyName("timepoint")]
         public int timepoint { get; set; }

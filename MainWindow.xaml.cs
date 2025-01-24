@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 using WeatherApplication.Model;
 
 namespace WeatherApplication {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window {
         private WeatherViewModel _viewModel;
 
@@ -38,7 +36,6 @@ namespace WeatherApplication {
                 var content = await response.Content.ReadAsStringAsync();
                 var post = JsonSerializer.Deserialize<Weather>(content);
 
-                // Assuming the API has a "temperature" field
                 _viewModel.TemperatureNow = post?.dataseries.First().temp2m;
                 _viewModel.WeatherDescriptionNow = post?.dataseries.First().weather;
                 _viewModel.TemperatureTomorrow = post?.dataseries[8].temp2m;
