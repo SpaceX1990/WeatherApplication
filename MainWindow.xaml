@@ -9,9 +9,13 @@
     <Grid>
         <StackPanel Margin="20">
             <TextBlock Text="Aktuelle Temperatur:" FontSize="16"/>
-            <TextBlock x:Name="TemperatureText"  Text="{Binding WeatherContent, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
+            <TextBlock x:Name="TemperatureText"  Text="{Binding TemperatureNow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
             <TextBlock Text="Wetterbeschreibung:" FontSize="16"/>
-            <TextBlock x:Name="WeatherDescriptionText" FontSize="16"/>
+            <TextBlock x:Name="WeatherDescriptionText" Text="{Binding WeatherDescriptionNow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
+            <TextBlock Text="Morgige Temperatur:" FontSize="16"/>
+            <TextBlock x:Name="TemperatureTextTomorrow"  Text="{Binding TemperatureTomorrow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
+            <TextBlock Text="Morgige Wetterbeschreibung:" FontSize="16"/>
+            <TextBlock x:Name="WeatherDescriptionTextTomorrow" Text="{Binding WeatherDescriptionTomorrow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
             <Button Content="Aktualisieren" Click="UpdateWeather_Click" Width="100" Margin="0,20,0,0"/>
         </StackPanel>
     </Grid>

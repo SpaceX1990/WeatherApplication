@@ -39,10 +39,14 @@ namespace WeatherApplication {
                 var post = JsonSerializer.Deserialize<Weather>(content);
 
                 // Assuming the API has a "temperature" field
-                _viewModel.WeatherContent = post?.product ?? "No data available";
+                _viewModel.TemperatureNow = post?.dataseries.First().temp2m;
+                _viewModel.WeatherDescriptionNow = post?.dataseries.First().weather;
+                _viewModel.TemperatureTomorrow = post?.dataseries[8].temp2m;
+                _viewModel.WeatherDescriptionTomorrow = post?.dataseries[8].weather;
+
             }
             else {
-                _viewModel.WeatherContent = "Failed to fetch weather data.";
+                _viewModel.WeatherDescriptionNow = "Failed to fetch weather data.";
             }
         }
 
@@ -52,15 +56,44 @@ namespace WeatherApplication {
     }
 
     public class WeatherViewModel : INotifyPropertyChanged {
-        private string? _weatherContent;
+        private string? _weatherDescriptionNow;
+        private int ? _temperatureNow;
+        private string? _weatherDescriptionTomorrow;
+        private int ? _temperatureTomorrow;
+       
 
-        public string? WeatherContent {
-            get => _weatherContent;
+        public int? TemperatureNow {
+            get => _temperatureNow;
             set {
-                _weatherContent = value;
-                OnPropertyChanged(nameof(WeatherContent));
+                _temperatureNow = value;
+                OnPropertyChanged(nameof(TemperatureNow));
             }
         }
+
+        public string? WeatherDescriptionNow {
+            get => _weatherDescriptionNow;
+            set {
+                _weatherDescriptionNow = value;
+                OnPropertyChanged(nameof(WeatherDescriptionNow));
+            }
+        }  
+        
+        public int? TemperatureTomorrow {
+            get => _temperatureTomorrow;
+            set {
+                _temperatureTomorrow = value;
+                OnPropertyChanged(nameof(TemperatureTomorrow));
+            }
+        }
+
+        public string? WeatherDescriptionTomorrow {
+            get => _weatherDescriptionTomorrow;
+            set {
+                _weatherDescriptionTomorrow = value;
+                OnPropertyChanged(nameof(WeatherDescriptionTomorrow));
+            }
+        }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
