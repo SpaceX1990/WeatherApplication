@@ -30,7 +30,7 @@ namespace WeatherApplication {
                 BaseAddress = new Uri("http://www.7timer.info")
             };
 
-            var response = await client.GetAsync("/bin/api.pl?lon=113.17&lat=23.09&product=civil&output=json");
+            var response = await client.GetAsync("/bin/api.pl?lon=8.8&lat=53.07&product=civil&output=json");
 
             if (response.IsSuccessStatusCode) {
                 var content = await response.Content.ReadAsStringAsync();

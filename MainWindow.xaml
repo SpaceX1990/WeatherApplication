@@ -10,7 +10,7 @@
         <StackPanel Margin="20">
             <TextBlock Text="Aktuelle Temperatur:" FontSize="16"/>
             <TextBlock x:Name="TemperatureText"  Text="{Binding TemperatureNow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
-            <TextBlock Text="Wetterbeschreibung:" FontSize="16"/>
+            <TextBlock Text="Aktuelle Wetterbeschreibung:" FontSize="16"/>
             <TextBlock x:Name="WeatherDescriptionText" Text="{Binding WeatherDescriptionNow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
             <TextBlock Text="Morgige Temperatur:" FontSize="16"/>
             <TextBlock x:Name="TemperatureTextTomorrow"  Text="{Binding TemperatureTomorrow, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
